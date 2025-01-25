@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Overpass Bold.ttf",
+      "sha1": "44e088b325efec70d875d9842abd560b8ef4f354"
+    },
+    {
+      "path": "src/assets/fonts/Overpass Regular.ttf",
+      "sha1": "d4a1bed4c947e9cf62fd5dcdb84adfa481ee15e0"
+    },
+    {
+      "path": "src/assets/fonts/Overpass SemiBold.ttf",
+      "sha1": "d477d72e206dc9c02e9f752b9ac1f59e22194299"
+    }
+  ]
+}
