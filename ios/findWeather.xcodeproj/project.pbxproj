@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		0C80B921A6F3F58F76C31292 /* libPods-findWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-findWeather.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		23B3C32E68994AC4B42A3A43 /* Overpass Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 91F6E5DB518D4B32B4C54CCB /* Overpass Regular.ttf */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A5BD7C451E4748819406D776 /* Overpass Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A420E8E4184449FE838231E8 /* Overpass Bold.ttf */; };
 		AFD6B7D158B4F2511142F399 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		DD44710A9B2F4494ABBF48BE /* Overpass SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64810AAA53EF4FE58DC70C77 /* Overpass SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,11 @@
 		3B4392A12AC88292D35C810B /* Pods-findWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-findWeather.debug.xcconfig"; path = "Target Support Files/Pods-findWeather/Pods-findWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-findWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-findWeather.release.xcconfig"; path = "Target Support Files/Pods-findWeather/Pods-findWeather.release.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-findWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-findWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64810AAA53EF4FE58DC70C77 /* Overpass SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass SemiBold.ttf"; path = "../src/assets/fonts/Overpass SemiBold.ttf"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = findWeather/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = findWeather/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		91F6E5DB518D4B32B4C54CCB /* Overpass Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass Regular.ttf"; path = "../src/assets/fonts/Overpass Regular.ttf"; sourceTree = "<group>"; };
+		A420E8E4184449FE838231E8 /* Overpass Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass Bold.ttf"; path = "../src/assets/fonts/Overpass Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -39,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05770EAC5D864F82B0AC57E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A420E8E4184449FE838231E8 /* Overpass Bold.ttf */,
+				91F6E5DB518D4B32B4C54CCB /* Overpass Regular.ttf */,
+				64810AAA53EF4FE58DC70C77 /* Overpass SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* findWeather */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +92,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				05770EAC5D864F82B0AC57E6 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -161,6 +179,9 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				AFD6B7D158B4F2511142F399 /* PrivacyInfo.xcprivacy in Resources */,
+				A5BD7C451E4748819406D776 /* Overpass Bold.ttf in Resources */,
+				23B3C32E68994AC4B42A3A43 /* Overpass Regular.ttf in Resources */,
+				DD44710A9B2F4494ABBF48BE /* Overpass SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

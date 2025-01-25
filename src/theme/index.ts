@@ -13,4 +13,9 @@ export const Theme = {
     dark300: '#23262B',
     dark400: '#212428',
   },
+  fonts: {
+    regular: 'Overpass Regular',
+    semibold: 'Overpass SemiBold',
+    bold: 'Overpass Bold',
+  },
 };
