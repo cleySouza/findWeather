@@ -1,14 +1,22 @@
 import React from 'react';
-import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {useNavigator} from '../../router';
+
 import Brand from '../../assets/images/cloudAndThunder.svg';
-
 import {styles} from './styles.ts';
-
-const {width, height} = Dimensions.get('window');
+import {calculateDimension} from '../../utils';
 
 export function WellcomeScreen() {
-  const percentageWidth = 0.61 * width;
-  const percentageHeight = 0.26 * height;
+  const navigation = useNavigator();
+
+  function handleClick() {
+    navigation.navigate('tabs');
+  }
+
+  const {width, height} = calculateDimension({
+    percentWidth: 0.61,
+    percentHeight: 0.26,
+  });
 
   const title = 'Descubra o Clima \n na sua Cidade';
   const restBrand =
@@ -16,11 +24,7 @@ export function WellcomeScreen() {
 
   return (
     <View style={styles.Container}>
-      <Brand
-        style={styles.image}
-        width={percentageWidth}
-        height={percentageHeight}
-      />
+      <Brand style={styles.image} width={width} height={height} />
 
       <Text style={styles.Title}>{title}</Text>
 
@@ -34,7 +38,9 @@ export function WellcomeScreen() {
       </View>
 
       <TouchableOpacity style={styles.button}>
-        <Text style={styles.textButton}>Iniciar</Text>
+        <Text style={styles.textButton} onPress={handleClick}>
+          Iniciar
+        </Text>
       </TouchableOpacity>
     </View>
   );

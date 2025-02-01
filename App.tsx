@@ -1,8 +1,13 @@
 import React from 'react';
-import {WellcomeScreen} from './src/screens/wellcome';
+import {NavigationContainer} from '@react-navigation/native';
+import {Routers} from './src/router';
 
 function App(): React.JSX.Element {
-  return <WellcomeScreen />;
+  return (
+    <NavigationContainer>
+      <Routers />
+    </NavigationContainer>
+  );
 }
 
 export default App;
