@@ -1,6 +1,6 @@
-import {Button, Text, View, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Octicons';
+import React from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
+import {useNavigator} from '../../router';
 
 import Brand from '../../assets/images/climate-change.svg';
 
@@ -8,7 +8,7 @@ import {styles} from './styles.ts';
 import {calculateDimension} from '../../utils';
 
 export function HomeEmptyScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigator();
 
   const {width, height} = calculateDimension({
     percentHeight: 0.32,
@@ -16,7 +16,7 @@ export function HomeEmptyScreen() {
   });
 
   function handleClick() {
-    navigation.goBack();
+    navigation.navigate('searchScreen');
   }
 
   return (
@@ -26,7 +26,7 @@ export function HomeEmptyScreen() {
         <Text style={styles.title600}>Weather</Text>
       </View>
       <Brand width={width} height={height} />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleClick}>
         <Text style={styles.buttonText}>
           {'Selecione aqui um local e \n encontre o clima em tempo real'}
         </Text>

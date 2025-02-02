@@ -5,8 +5,8 @@ import {
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useNavigation, ParamListBase} from '@react-navigation/native';
 
-import {WellcomeScreen, HomeEmptyScreen} from '../screens';
-import Icon from 'react-native-vector-icons/Octicons';
+import {WellcomeScreen, HomeEmptyScreen, SearchScreen} from '../screens';
+import Icon from 'react-native-vector-icons/AntDesign';
 import {Theme} from '../theme';
 import {View} from 'react-native';
 
@@ -32,24 +32,46 @@ export function RoutesTabs() {
     <Tabs.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarLabelPosition: 'beside-icon',
         tabBarStyle: {
           backgroundColor: Theme.colors.dark,
+          borderTopWidth: 0,
+          paddingHorizontal: 20,
         },
+        tabBarLabelStyle: {
+          fontSize: 16,
+          fontFamily: Theme.fonts.semibold,
+        },
+        tabBarActiveTintColor: Theme.colors.white,
+        tabBarInactiveTintColor: Theme.colors.gray500,
       }}>
       <Tabs.Screen
         name="homeEmpty"
         component={HomeEmptyScreen}
         options={{
           tabBarLabel: 'Home',
-          tabBarLabelStyle: {
-            color: Theme.colors.white,
-          },
           tabBarIcon: ({focused}) => (
             <View>
               <Icon
                 name="home"
                 color={focused ? Theme.colors.white : Theme.colors.gray500}
-                size={22}
+                size={24}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="searchScreen"
+        component={SearchScreen}
+        options={{
+          tabBarLabel: 'Buscar',
+          tabBarIcon: ({focused}) => (
+            <View>
+              <Icon
+                name="search1"
+                color={focused ? Theme.colors.white : Theme.colors.gray500}
+                size={24}
               />
             </View>
           ),

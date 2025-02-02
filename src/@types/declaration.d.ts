@@ -9,7 +9,16 @@ declare module 'react-native-vector-icons/Octicons' {
   import {IconProps} from 'react-native-vector-icons/Icon';
   import React from 'react';
 
-  const Ionicons: React.ComponentType<IconProps>;
+  const Octicons: React.ComponentType<IconProps>;
 
-  export default Ionicons;
+  export default Octicons;
+}
+
+declare module 'react-native-vector-icons/AntDesign' {
+  import {IconProps} from 'react-native-vector-icons/Icon';
+  import React from 'react';
+
+  const AntDesign: React.ComponentType<IconProps>;
+
+  export default AntDesign;
 }

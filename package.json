@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "start:android": "react-native run-android && react-native start",
+    "start:ios": "react-native run-ios && react-native start",
     "pod:install": "cd ios && pod install && cd .."
   },
   "dependencies": {
