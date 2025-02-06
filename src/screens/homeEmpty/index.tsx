@@ -16,7 +16,7 @@ export function HomeEmptyScreen() {
   });
 
   function handleClick() {
-    navigation.navigate('searchScreen');
+    navigation.navigate('search');
   }
 
   return (

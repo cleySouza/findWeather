@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigator} from '../../router';
 
 import Brand from '../../assets/images/cloudAndThunder.svg';
 import {styles} from './styles.ts';
 import {calculateDimension} from '../../utils';
+import {useOpenApp} from '../../hooks/useOpenApp.tsx';
 
 export function WellcomeScreen() {
   const navigation = useNavigator();
+  const {setOpenApp, isOpen} = useOpenApp();
+
+  useEffect(() => {
+    if (!isOpen) {
+      setOpenApp();
+    }
+    console.log(isOpen);
+  }, [isOpen, setOpenApp]);
 
   function handleClick() {
     navigation.navigate('tabs');

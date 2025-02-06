@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     paddingHorizontal: 20,
-    alignItems: 'center',
   },
   contentHeader: {
     display: 'flex',
@@ -32,6 +31,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
+    marginBottom: 40,
     gap: 10,
   },
   inputContent: {

@@ -1,22 +1,30 @@
+import React from 'react';
+import {View} from 'react-native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useNavigation, ParamListBase} from '@react-navigation/native';
+import {useOpenApp} from '../hooks/useOpenApp.tsx';
 
-import {WellcomeScreen, HomeEmptyScreen, SearchScreen} from '../screens';
+import {WellcomeScreen, SearchScreen, HomeScreen} from '../screens';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Theme} from '../theme';
-import {View} from 'react-native';
+
+type RootTabsParamList = {
+  home: {cityData: any} | undefined;
+  search: undefined;
+};
 
 const Stack = createNativeStackNavigator();
-const Tabs = createBottomTabNavigator();
+const Tabs = createBottomTabNavigator<RootTabsParamList>();
 
 export function Routers() {
+  const {isOpen} = useOpenApp();
   return (
     <Stack.Navigator
-      initialRouteName="wellcome"
+      initialRouteName={isOpen ? 'tabs' : 'wellcome'}
       screenOptions={{
         headerShown: false,
       }}>
@@ -30,6 +38,7 @@ export function Routers() {
 export function RoutesTabs() {
   return (
     <Tabs.Navigator
+      // initialRouteName={}
       screenOptions={{
         headerShown: false,
         tabBarLabelPosition: 'beside-icon',
@@ -45,24 +54,26 @@ export function RoutesTabs() {
         tabBarActiveTintColor: Theme.colors.white,
         tabBarInactiveTintColor: Theme.colors.gray500,
       }}>
+      {
+        <Tabs.Screen
+          name="home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({focused}) => (
+              <View>
+                <Icon
+                  name="home"
+                  color={focused ? Theme.colors.white : Theme.colors.gray500}
+                  size={24}
+                />
+              </View>
+            ),
+          }}
+        />
+      }
       <Tabs.Screen
-        name="homeEmpty"
-        component={HomeEmptyScreen}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({focused}) => (
-            <View>
-              <Icon
-                name="home"
-                color={focused ? Theme.colors.white : Theme.colors.gray500}
-                size={24}
-              />
-            </View>
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="searchScreen"
+        name="search"
         component={SearchScreen}
         options={{
           tabBarLabel: 'Buscar',
