@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlatList,
   SafeAreaView,
   Text,
   TextInput,
@@ -8,7 +9,7 @@ import {
 } from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
 import {useNavigator, useWeather, useGuardCity} from '../../hooks';
-import {getForestApi} from '../../service/api.ts';
+import {getForestApi, getSearchApi} from '../../service/api.ts';
 
 import Icon from 'react-native-vector-icons/Octicons';
 import {CardTemp} from '../../components/app/cardTemp';
@@ -22,7 +23,7 @@ interface FormData {
 }
 
 export function SearchScreen() {
-  const [search, setSearch] = React.useState();
+  const [search, setSearch] = React.useState<any[]>([]);
   const [loading, setLoading] = React.useState(false);
   const navigation = useNavigator();
   const {setCity} = useGuardCity();
@@ -36,13 +37,16 @@ export function SearchScreen() {
   }
 
   function onSubmit(data: FormData) {
-    getForestApi({value: data.value, days: 6}, setSearch, setLoading);
+    getSearchApi({value: data.value}, setSearch, setLoading);
+    // getForestApi({value: data.value, days: 6}, setSearch, setLoading);
     setCity(data.value);
+    console.log('search:', search);
+    
   }
 
-  function handlePressCard() {
-    setWeatherData(search);
-    navigation.navigate('home', {data: search});
+  function handlePressCard(item: any) {
+    setWeatherData(item);
+    navigation.navigate('home', {data: item});
   }
 
   return (
@@ -79,7 +83,15 @@ export function SearchScreen() {
             <Icon name="location" size={29} color={Theme.colors.white} />
           </TouchableOpacity>
         </View>
-        {search && <CardTemp search={search} onPress={handlePressCard} />}
+        {search && (
+          <FlatList
+            data={search}
+            renderItem={({item}) => (
+              <CardTemp search={item} onPress={() => handlePressCard(item)} />
+            )}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
         {loading && <Loading />}
       </View>
     </SafeAreaView>

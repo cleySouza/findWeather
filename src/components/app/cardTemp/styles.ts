@@ -3,11 +3,12 @@ import {Theme} from '../../../theme';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '45%',
+    width: '100%',
     padding: 15,
     borderWidth: 1,
     borderColor: Theme.colors.dark100,
     borderRadius: 20,
+    marginBottom: 10,
   },
   content: {
     flexDirection: 'row',
