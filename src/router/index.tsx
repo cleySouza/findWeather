@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useOpenApp} from '../hooks/useOpenApp.tsx';
+import {useGuardCity, useWeather, useOpenApp} from '../hooks';
 
 import {
   WellcomeScreen,
@@ -12,19 +12,22 @@ import {
 } from '../screens';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Theme} from '../theme';
-import {useWeather} from '../hooks';
-
-type RootTabsParamList = {
-  home: {cityData: any} | undefined;
-  navigation: any;
-  search: undefined;
-};
+import {getForestApi} from '../service/api.ts';
 
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
 
 export function Routers() {
   const {isOpen} = useOpenApp();
+  const {getCity} = useGuardCity();
+  const {setWeatherData} = useWeather();
+
+  React.useEffect(() => {
+    const city = getCity();
+    if (city !== null) {
+      getForestApi({value: city, days: 6}, setWeatherData);
+    }
+  });
 
   return (
     <Stack.Navigator
