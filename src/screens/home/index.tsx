@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  FlatList,
-  Image,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useWeather, useNavigator} from '../../hooks';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -17,6 +10,7 @@ import {styles} from './styles.ts';
 import {Theme} from '../../theme';
 import {forecastConditionsIcons, formatDate} from '../../utils';
 import {ListNextHours} from '../../components/app/listNextHours';
+import {Container} from '../../components/core';
 
 export function HomeScreen({route}: any) {
   const {data} = route.params || {};
@@ -32,7 +26,7 @@ export function HomeScreen({route}: any) {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Container style={styles.container}>
       {search ? (
         <View style={styles.content}>
           <View style={styles.header}>
@@ -94,6 +88,6 @@ export function HomeScreen({route}: any) {
       ) : (
         <HomeEmptyScreen />
       )}
-    </SafeAreaView>
+    </Container>
   );
 }
