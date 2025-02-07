@@ -1,90 +1,150 @@
-import LightRainPNG from '../assets/images/png/light-rain.png';
-import LightRainMiddlePNG from '../assets/images/png/light-rain-middle.png';
-import LightRainNightPNG from '../assets/images/png/light-rain-night.png';
+const LightRainPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/light-rain.png';
+const LightRainMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/light-rain-night.png';
+const LightRainNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/light-rain-night.png';
 
-import RainingPNG from '../assets/images/png/raining.png';
-import RainingNightPNG from '../assets/images/png/raining-night.png';
-import RainingMiddlePNG from '../assets/images/png/raining-middle.png';
+const RainingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/raining.png';
+const RainingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/raining-night.png';
+const RainingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/raining-middle.png';
 
-import HeavyRainingPNG from '../assets/images/png/heavy-raining.png';
-import HeavyRainingMiddlePNG from '../assets/images/png/heavy-raining-middle.png';
-import HeavyRainingNightPNG from '../assets/images/png/heavy-raining-night.png';
+const HeavyRainingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining.png';
+const HeavyRainingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining-middle.png';
+const HeavyRainingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining-night.png';
 
-import WaterdropPNG from '../assets/images/png/waterdrop.png';
-import WaterdropMiddlePNG from '../assets/images/png/waterdrop-middle.png';
-import WaterdropNightPNG from '../assets/images/png/waterdrop-night.png';
+const WaterdropPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/waterdrop.png';
+const WaterdropMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/waterdrop-middle.png';
+const WaterdropNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/waterdrop-night.png';
 
-import RainingAndThunderPNG from '../assets/images/png/raining-and-thunder.png';
+const RainingAndThunderPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/raining-and-thunder.png';
 
-import HeavyRainingAndThunderPNG from '../assets/images/png/heavy-raining-and-thunder.png';
-import HeavyRainingAndThunderMiddlePNG from '../assets/images/png/heavy-raining-and-thunder-middle.png';
-import HeavyRainingAndThunderNightPNG from '../assets/images/png/heavy-raining-and-thunder-night.png';
+const HeavyRainingAndThunderPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining-and-thunder.png';
+const HeavyRainingAndThunderMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining-and-thunder-middle.png';
+const HeavyRainingAndThunderNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/heavy-raining-and-thunder-night.png';
 
-import ThunderPNG from '../assets/images/png/thunder.png';
-import ThunderMiddlePNG from '../assets/images/png/thunder-middle.png';
-import ThunderNightPNG from '../assets/images/png/thunder-night.png';
+const ThunderPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/thunder.png';
+const ThunderMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/thunder-middle.png';
+const ThunderNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/thunder-night.png';
 
-import HailstonePNG from '../assets/images/png/hailstone.png';
-import HailstoneMiddlePNG from '../assets/images/png/hailstone-middle.png';
-import HailstoneNightPNG from '../assets/images/png/hailstone-night.png';
+const HailstonePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/hailstone.png';
+const HailstoneMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/hailstone-middle.png';
+const HailstoneNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/hailstone-night.png';
 
-import CloudPNG from '../assets/images/png/cloud.png';
+const CloudPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/cloud.png';
 
-import SunPNG from '../assets/images/png/sun.png';
+const SunPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/sun.png';
 
-import NightPNG from '../assets/images/png/night.png';
+const NightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/night.png';
 
-import FogPNG from '../assets/images/png/fog.png';
-import FogMiddlePNG from '../assets/images/png/fog-middle.png';
-import FogNightPNG from '../assets/images/png/fog-night.png';
+const FogPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/fog.png';
+const FogMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/fog-middle.png';
+const FogNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/fog-night.png';
 
-import IcyFogPNG from '../assets/images/png/icy-fog.png';
-import IcyFogMiddlePNG from '../assets/images/png/icy-fog-middle.png';
-import IcyFogNightPNG from '../assets/images/png/icy-fog-night.png';
+const IcyFogPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/icy-fog.png';
+const IcyFogMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/icy-fog-middle.png';
+const IcyFogNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/icy-fog-night.png';
 
-import MidSnowFastWindsPNG from '../assets/images/png/mid-snow-fast-winds.png';
+const MidSnowFastWindsPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/mid-snow-fast-winds.png';
 
-import FreezingHeavyRainingPNG from '../assets/images/png/freezing-heavy-raining.png';
-import FreezingHeavyRainingMiddlePNG from '../assets/images/png/freezing-heavy-raining-middle.png';
-import FreezingHeavyRainingNightPNG from '../assets/images/png/freezing-heavy-raining-night.png';
+const FreezingHeavyRainingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-heavy-raining.png';
+const FreezingHeavyRainingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-heavy-raining-middle.png';
+const FreezingHeavyRainingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-heavy-raining-night.png';
 
-import FreezingLightRainPNG from '../assets/images/png/freezing-light-rain.png';
-import FreezingLightRainMiddlePNG from '../assets/images/png/freezing-light-rain-middle.png';
-import FreezingLightRainNightPNG from '../assets/images/png/freezing-light-rain-night.png';
+const FreezingLightRainPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-light-rain.png';
+const FreezingLightRainMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-light-rain-middle.png';
+const FreezingLightRainNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-light-rain-night.png';
 
-import FreezingRainingPNG from '../assets/images/png/freezing-raining.png';
-import FreezingRainingNightPNG from '../assets/images/png/freezing-raining-night.png';
-import FreezingRainingMiddlePNG from '../assets/images/png/freezing-raining-middle.png';
+const FreezingRainingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-raining.png';
+const FreezingRainingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-raining-night.png';
+const FreezingRainingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/freezing-raining-middle.png';
 
-import BlizzardPNG from '../assets/images/png/blizzard.png';
-import BlizzardMiddlePNG from '../assets/images/png/blizzard-middle.png';
-import BlizzardNightPNG from '../assets/images/png/blizzard-night.png';
+const BlizzardPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/blizzard.png';
+const BlizzardMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/blizzard-middle@2x.png';
+const BlizzardNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/blizzard-night.png';
 
-import SnowingPNG from '../assets/images/png/snowing.png';
-import SnowingMiddlePNG from '../assets/images/png/snowing-middle.png';
-import SnowingNightPNG from '../assets/images/png/snowing-night.png';
+const SnowingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snowing.png';
+const SnowingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snowing-middle.png';
+const SnowingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snowing-night.png';
 
-import SnowLightRainPNG from '../assets/images/png/snow-light-rain.png';
-import SnowLightRainMiddlePNG from '../assets/images/png/snow-light-rain-middle.png';
-import SnowLightRainNightPNG from '../assets/images/png/snow-light-rain-night.png';
+const SnowLightRainPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-light-rain.png';
+const SnowLightRainMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-light-rain-middle.png';
+const SnowLightRainNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-light-rain-night.png';
 
-import SnowHeavyRainingPNG from '../assets/images/png/snow-heavy-raining.png';
-import SnowHeavyRainingMiddlePNG from '../assets/images/png/snow-heavy-raining-middle.png';
-import SnowHeavyRainingNightPNG from '../assets/images/png/snow-heavy-raining-night.png';
+const SnowHeavyRainingPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-heavy-raining.png';
+const SnowHeavyRainingMiddlePNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-heavy-raining-middle.png';
+const SnowHeavyRainingNightPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-heavy-raining-night.png';
 
-import SnowWithThunderPNG from '../assets/images/png/snow-with-thunder.png';
+const SnowWithThunderPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow-with-thunder.png';
 
-import SnowPNG from '../assets/images/png/snow.png';
+const SnowPNG =
+  '../assets/images/png/https://github.com/cleySouza/findWeather/releases/download/imagesproject/snow.png';
 
-import SandDustCloudPNG from '../assets/images/png/sand-dust-cloud.png';
+const SandDustCloudPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/sand-dust-cloud.png';
 
-import VolcanicAshCloud from '../assets/images/png/volcanic-ash-cloud.png';
+const VolcanicAshCloud =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/volcanic-ash-cloud.png';
 
-import TornadoPNG from '../assets/images/png/tornado.png';
+const TornadoPNG =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/tornado.png';
 
-import SandDustWhirls from '../assets/images/png/sand-dust-whirls.png';
+const SandDustWhirls =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/sand-dust-whirls.png';
 
-import Squalls from '../assets/images/png/squalls.png';
+const Squalls =
+  'https://github.com/cleySouza/findWeather/releases/download/imagesproject/squalls.png';
 
 const currentHour = new Date().getHours();
 

@@ -48,6 +48,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: Theme.fonts.regular,
     color: Theme.colors.white,
+    width: '100%',
   },
   backButton: {
     backgroundColor: 'transparent',

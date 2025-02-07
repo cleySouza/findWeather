@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    width: '25%',
+    width: '26%',
   },
   textContent: {
     fontSize: 16,

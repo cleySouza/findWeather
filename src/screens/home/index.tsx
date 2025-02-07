@@ -7,51 +7,29 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useWeather, useNavigator} from '../../hooks';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {styles} from './styles.ts';
-import {Theme} from '../../theme';
 import {CardClimate} from '../../components/app/cardClimate';
-import {forecastConditionsIcons} from '../../utils/forecastIcon.tsx';
-import {useWeather} from '../../hooks/useWeather.tsx';
 import {HomeEmptyScreen} from '../homeEmpty';
 
+import {styles} from './styles.ts';
+import {Theme} from '../../theme';
+import {forecastConditionsIcons, formatDate} from '../../utils';
+import {ListNextHours} from '../../components/app/listNextHours';
+
 export function HomeScreen({route}: any) {
-  const [search, setSearch] = React.useState();
-  const {getWeatherData, data} = useWeather();
-
-  React.useEffect(() => {
-    const dataWeather = getWeatherData();
-    if (dataWeather) {
-      setSearch(dataWeather);
-    }
-    console.log('getWeatherData()', dataWeather);
-  }, [getWeatherData]);
-
-  console.log('route ', route);
-  console.log('data ', data);
-
-  const date = new Date();
-
-  const monthDate = Intl.DateTimeFormat('pt-BR', {
-    month: 'short',
-  }).format(date);
-  const weekday = Intl.DateTimeFormat('pt-BR', {
-    weekday: 'short',
-  }).format(date);
-  const day = Intl.DateTimeFormat('pt-BR', {
-    day: 'numeric',
-  }).format(date);
-  const year = Intl.DateTimeFormat('pt-BR', {
-    year: 'numeric',
-  }).format(date);
-
-  function formatDate() {
-    const week = weekday.toUpperCase();
-    const month = monthDate.charAt(0).toUpperCase() + monthDate.slice(1);
-    return `${week} ${day} ${month} de ${year}`;
-  }
+  const {data} = route.params || {};
+  const {getWeatherData} = useWeather();
+  const dataHook = getWeatherData();
+  const navigation = useNavigator();
+  const search = data ? data : dataHook;
 
   const hours = search?.forecast?.forecastday?.[0]?.hour;
+
+  function handleGoNextDays() {
+    navigation.navigate('nextDays', {search});
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -67,12 +45,27 @@ export function HomeScreen({route}: any) {
             </View>
           </View>
           <Image
-            style={{width: '60%', height: '27%'}}
-            source={forecastConditionsIcons(search?.current?.condition?.text)}
+            style={{width: '60%', height: '28%'}}
+            source={{
+              uri: `${forecastConditionsIcons(
+                search?.current?.condition?.text,
+              )}`,
+            }}
           />
-          <Text style={styles.temperature}>
-            {Math.floor(search?.current?.temp_c)}
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.temperature}>
+              {Math.floor(search?.current?.temp_c)}
+            </Text>
+            <Text
+              style={{
+                fontSize: 30,
+                fontFamily: Theme.fonts.regular,
+                color: Theme.colors.white,
+                marginTop: 15,
+              }}>
+              º
+            </Text>
+          </View>
           <Text style={styles.textClimate}>
             {search?.current?.condition?.text}
           </Text>
@@ -85,7 +78,9 @@ export function HomeScreen({route}: any) {
 
           <View style={styles.contentDay}>
             <Text style={styles.contentDayText}>Hoje</Text>
-            <TouchableOpacity style={styles.contentDayButton}>
+            <TouchableOpacity
+              style={styles.contentDayButton}
+              onPress={handleGoNextDays}>
               <Text style={styles.contentDayButtonText}>Próximos 5 dias</Text>
               <Icon
                 name="chevron-right"
@@ -94,27 +89,7 @@ export function HomeScreen({route}: any) {
               />
             </TouchableOpacity>
           </View>
-
-          <View style={styles.contentNextHours}>
-            <FlatList
-              data={hours}
-              horizontal={true}
-              renderItem={({item, index}) => (
-                <View key={index} style={styles.cardNextHours}>
-                  <Text style={styles.textNextHoursTemp}>
-                    {Math.floor(item.temp_c)}
-                  </Text>
-                  <Image
-                    source={{uri: `https:${item.condition?.icon}`}}
-                    style={{width: 40, height: 40}}
-                  />
-                  <Text style={styles.textNextHours}>
-                    {item?.time?.substring(11, 16)}
-                  </Text>
-                </View>
-              )}
-            />
-          </View>
+          <ListNextHours hours={hours} />
         </View>
       ) : (
         <HomeEmptyScreen />

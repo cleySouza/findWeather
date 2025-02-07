@@ -1586,6 +1586,27 @@ PODS:
     - React-logger (= 0.77.0)
     - React-perflogger (= 0.77.0)
     - React-utils (= 0.77.0)
+  - RNBootSplash (6.3.3):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNScreens (4.6.0):
     - DoubleConversion
     - glog
@@ -1747,6 +1768,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNBootSplash (from `../node_modules/react-native-bootsplash`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -1891,6 +1913,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNBootSplash:
+    :path: "../node_modules/react-native-bootsplash"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSVG:
@@ -1966,6 +1990,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 6e8d68583f39dc31ee65235110287277eb8556ef
   ReactCodegen: c08a5113d9c9c895fe10f3c296f74c6b705a60a9
   ReactCommon: 1bd2dc684d7992acbf0dfee887b89a57a1ead86d
+  RNBootSplash: b83a1f87e0880ac30f9577d32cb046a081050d58
   RNScreens: 5a1573ceb1a13b2d0663cbfb42cb4aa8803554eb
   RNSVG: 2089e8b3a145acb2f392017279790f007f934567
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748

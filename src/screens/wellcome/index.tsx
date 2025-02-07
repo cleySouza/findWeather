@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {useNavigator} from '../../router';
+import {useNavigator, useOpenApp} from '../../hooks';
 
 import Brand from '../../assets/images/cloudAndThunder.svg';
+
 import {styles} from './styles.ts';
 import {calculateDimension} from '../../utils';
-import {useOpenApp} from '../../hooks/useOpenApp.tsx';
 
 export function WellcomeScreen() {
   const navigation = useNavigator();

@@ -1,12 +1,12 @@
 import {Alert} from 'react-native';
 
-export function getCurrentApi(
+export function getSearchWeather(
   data: {value: string},
   setSearch: React.Dispatch<React.SetStateAction<any>>,
   setLoading: React.Dispatch<React.SetStateAction<any>>,
 ) {
   fetch(
-    `https://api.weatherapi.com/v1/current.json?q=${data?.value}&lang=pt&key=502cad18b6ef4da599a43808250402`,
+    `https://api.weatherapi.com/v1/search.json?q=${data?.value}&key=502cad18b6ef4da599a43808250402`,
     {headers: {'Content-Type': 'application/json'}, method: 'GET'},
   )
     .then(response => response.json())
@@ -15,7 +15,6 @@ export function getCurrentApi(
         Alert.alert(data?.error.message);
         setLoading(false);
       } else {
-        console.log(data);
         setSearch(data);
         setLoading(false);
       }
@@ -30,6 +29,8 @@ export function getForestApi(
   setLoading: React.Dispatch<React.SetStateAction<any>>,
 ) {
   console.log('getForest api: ', JSON.stringify(data, null, 2));
+  setLoading(true);
+
   fetch(
     `https://api.weatherapi.com/v1/forecast.json?q=${data.value}&days=${data.days}&key=502cad18b6ef4da599a43808250402&lang=pt`,
     {headers: {'Content-Type': 'application/json'}, method: 'GET'},
@@ -38,11 +39,11 @@ export function getForestApi(
     .then(data => {
       if (data?.error) {
         Alert.alert(data?.error.message);
+        setLoading(false);
       } else {
-        console.log(data);
         setWeatherData(data);
+        setLoading(false);
       }
     })
     .catch(error => Alert.alert(error.message));
-  setLoading(false);
 }

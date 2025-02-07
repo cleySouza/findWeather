@@ -18,10 +18,10 @@ const WeatherContext = createContext<IWeatherContextTypes | undefined>(
 );
 
 export function WeatherProvider({children}: IWeatherProvider) {
-  const data = storage.getString('weatherData');
+  const data = storage.getString('cley@weatherData');
 
   const getWeatherData = (): any => {
-    const storedData = storage.getString('weatherData');
+    const storedData = storage.getString('cley@weatherData');
     if (storedData) {
       return JSON.parse(storedData);
     }
@@ -29,9 +29,8 @@ export function WeatherProvider({children}: IWeatherProvider) {
   };
 
   function setWeatherData(data: any) {
-    console.log('setWeatherData', data);
     const stringifiedData = JSON.stringify(data);
-    storage.set('weatherData', stringifiedData);
+    storage.set('cley@weatherData', stringifiedData);
   }
 
   return (

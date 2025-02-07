@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {useNavigator} from '../../router';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
+import {useNavigator} from '../../hooks';
 
 import Brand from '../../assets/images/climate-change.svg';
 

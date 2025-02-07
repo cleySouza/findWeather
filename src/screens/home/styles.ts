@@ -16,7 +16,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'stretch',
     marginTop: 15,
-    marginBottom: 30,
   },
   iconLocation: {
     fontSize: 18,
@@ -34,7 +33,7 @@ export const styles = StyleSheet.create({
     color: Theme.colors.gray100,
   },
   temperature: {
-    fontSize: 72,
+    fontSize: 70,
     fontFamily: Theme.fonts.bold,
     color: Theme.colors.white,
   },
@@ -48,8 +47,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 25,
+    marginBottom: 15,
   },
   contentDayText: {
     fontSize: 20,
@@ -64,31 +63,6 @@ export const styles = StyleSheet.create({
   contentDayButtonText: {
     fontSize: 16,
     fontFamily: Theme.fonts.semibold,
-    color: Theme.colors.gray100,
-  },
-  contentNextHours: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  cardNextHours: {
-    alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderWidth: 1,
-    backgroundColor: Theme.colors.dark300,
-    borderColor: Theme.colors.dark100,
-    borderRadius: 20,
-    marginRight: 10,
-  },
-  textNextHoursTemp: {
-    fontSize: 18,
-    fontFamily: Theme.fonts.bold,
-    color: Theme.colors.white,
-  },
-  textNextHours: {
-    fontSize: 12,
-    fontFamily: Theme.fonts.bold,
     color: Theme.colors.gray100,
   },
 });

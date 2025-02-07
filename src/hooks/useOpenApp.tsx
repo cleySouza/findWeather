@@ -17,10 +17,10 @@ const OpenAppContext = createContext<IOpenAppContextTypes | undefined>(
 );
 
 export function OpenProvider({children}: IOpenAppProvider) {
-  const isOpen = storage.getBoolean('isOpen') ?? false;
+  const isOpen = storage.getBoolean('cley@isOpen') ?? false;
 
   function setOpenApp() {
-    storage.set('isOpen', true);
+    storage.set('cley@isOpen', true);
   }
 
   return (

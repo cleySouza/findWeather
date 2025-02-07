@@ -1,27 +1,31 @@
 import React from 'react';
 import {View} from 'react-native';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useNavigation, ParamListBase} from '@react-navigation/native';
 import {useOpenApp} from '../hooks/useOpenApp.tsx';
 
-import {WellcomeScreen, SearchScreen, HomeScreen} from '../screens';
+import {
+  WellcomeScreen,
+  SearchScreen,
+  HomeScreen,
+  NextDaysScreen,
+} from '../screens';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {Theme} from '../theme';
+import {useWeather} from '../hooks';
 
 type RootTabsParamList = {
   home: {cityData: any} | undefined;
+  navigation: any;
   search: undefined;
 };
 
 const Stack = createNativeStackNavigator();
-const Tabs = createBottomTabNavigator<RootTabsParamList>();
+const Tabs = createBottomTabNavigator();
 
 export function Routers() {
   const {isOpen} = useOpenApp();
+
   return (
     <Stack.Navigator
       initialRouteName={isOpen ? 'tabs' : 'wellcome'}
@@ -29,16 +33,19 @@ export function Routers() {
         headerShown: false,
       }}>
       <Stack.Screen name="wellcome" component={WellcomeScreen} />
-      {/*<Stack.Screen name="homeEmpty" component={HomeEmptyScreen} />*/}
+      <Stack.Screen name="nextDays" component={NextDaysScreen} />
       <Stack.Screen name="tabs" component={RoutesTabs} />
     </Stack.Navigator>
   );
 }
 
 export function RoutesTabs() {
+  const {getWeatherData} = useWeather();
+  const data = getWeatherData();
+  console.log('getWeatherData: ', data);
+
   return (
     <Tabs.Navigator
-      // initialRouteName={}
       screenOptions={{
         headerShown: false,
         tabBarLabelPosition: 'beside-icon',
@@ -58,6 +65,7 @@ export function RoutesTabs() {
         <Tabs.Screen
           name="home"
           component={HomeScreen}
+          initialParams={data}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({focused}) => (
@@ -90,9 +98,4 @@ export function RoutesTabs() {
       />
     </Tabs.Navigator>
   );
-}
-
-export function useNavigator() {
-  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-  return navigation;
 }

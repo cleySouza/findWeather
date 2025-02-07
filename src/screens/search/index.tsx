@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlatList,
   SafeAreaView,
   Text,
   TextInput,
@@ -7,14 +8,15 @@ import {
   View,
 } from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
+import {useNavigator, useWeather} from '../../hooks';
+import {getForestApi} from '../../service/api.ts';
+
 import Icon from 'react-native-vector-icons/Octicons';
+import {CardTemp} from '../../components/app/cardTemp';
+import {Loading} from '../../components/app/loading';
+
 import {styles} from './styles.ts';
 import {Theme} from '../../theme';
-import {useNavigator} from '../../router';
-import {CardTemp} from '../../components/app/cardTemp';
-import {getForestApi} from '../../service/api.ts';
-import {Loading} from '../../components/app/loading';
-import {useWeather} from '../../hooks/useWeather.tsx';
 
 interface FormData {
   value: string;
@@ -22,9 +24,9 @@ interface FormData {
 
 export function SearchScreen() {
   const [search, setSearch] = React.useState();
-  const {setWeatherData, getWeatherData} = useWeather();
   const [loading, setLoading] = React.useState(false);
   const navigation = useNavigator();
+  const {setWeatherData} = useWeather();
   const {control, handleSubmit} = useForm<FormData>({
     defaultValues: {value: ''},
   });
@@ -34,23 +36,16 @@ export function SearchScreen() {
   }
 
   function onSubmit(data: FormData) {
-    setLoading(true);
-    getForestApi({value: data.value, days: 7, data: ''}, setSearch, setLoading);
+    getForestApi({value: data.value, days: 6}, setSearch, setLoading);
+    // getSearchWeather({value: data.value}, setSearch, setLoading);
   }
 
   function handlePressCard() {
-    let data: any;
     setWeatherData(search);
-    if (search) {
-      data = getWeatherData();
-    }
-    console.log(data);
-
-    if (data) {
-      navigation.navigate('home', {search});
-    }
+    navigation.navigate('home', {data: search});
   }
 
+  console.log(search);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -85,7 +80,14 @@ export function SearchScreen() {
             <Icon name="location" size={29} color={Theme.colors.white} />
           </TouchableOpacity>
         </View>
-        {search && <CardTemp search={search} onPress={handlePressCard} />}
+        {search && (
+          <FlatList
+            data={search}
+            renderItem={({item}) => (
+              <CardTemp search={item} onPress={handlePressCard} />
+            )}
+          />
+        )}
         {loading && <Loading />}
       </View>
     </SafeAreaView>
