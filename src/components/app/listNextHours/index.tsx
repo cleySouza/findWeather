@@ -7,8 +7,7 @@ interface IProps {
 }
 
 export function ListNextHours({item}: IProps) {
-  // Obter todas as horas do item
-  const hoursToDisplay = item.hour; // Pegue todas as horas diretamente
+  const hoursToDisplay = item.hour;
 
   return (
     <View style={styles.contentNextHours}>
