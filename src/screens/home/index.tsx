@@ -8,7 +8,11 @@ import {HomeEmptyScreen} from '../homeEmpty';
 
 import {styles} from './styles.ts';
 import {Theme} from '../../theme';
-import {forecastConditionsIcons, formatDate} from '../../utils';
+import {
+  forecastConditionsIcons,
+  formatDate,
+  calculateDimension,
+} from '../../utils';
 import {ListNextHours} from '../../components/app/listNextHours';
 import {Container} from '../../components/core';
 
@@ -19,7 +23,12 @@ export function HomeScreen({route}: any) {
   const navigation = useNavigator();
   const search = data ? data : dataHook;
 
-  const hours = search?.forecast?.forecastday?.[0]?.hour;
+  const item = search?.forecast?.forecastday?.[0];
+
+  const {width, height} = calculateDimension({
+    percentHeight: 0.2,
+    percentWidth: 0.42,
+  });
 
   function handleGoNextDays() {
     navigation.navigate('nextDays', {search});
@@ -39,7 +48,9 @@ export function HomeScreen({route}: any) {
             </View>
           </View>
           <Image
-            style={{width: '60%', height: '28%'}}
+            style={{maxWidth: width, maxHeight: height}}
+            width={width}
+            height={height}
             source={{
               uri: `${forecastConditionsIcons(
                 search?.current?.condition?.text,
@@ -83,7 +94,7 @@ export function HomeScreen({route}: any) {
               />
             </TouchableOpacity>
           </View>
-          <ListNextHours hours={hours} />
+          <ListNextHours item={item} />
         </View>
       ) : (
         <HomeEmptyScreen />

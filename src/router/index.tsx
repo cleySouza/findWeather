@@ -45,7 +45,6 @@ export function Routers() {
 export function RoutesTabs() {
   const {getWeatherData} = useWeather();
   const data = getWeatherData();
-  console.log('getWeatherData: ', data);
 
   return (
     <Tabs.Navigator

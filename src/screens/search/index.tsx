@@ -40,8 +40,6 @@ export function SearchScreen() {
     getSearchApi({value: data.value}, setSearch, setLoading);
     // getForestApi({value: data.value, days: 6}, setSearch, setLoading);
     setCity(data.value);
-    console.log('search:', search);
-    
   }
 
   function handlePressCard(item: any) {

@@ -9,8 +9,6 @@ interface CardTempProps {
 }
 
 export function CardTemp({search, onPress}: CardTempProps) {
-  console.log("item: ", search);
-  
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.content}>

@@ -11,13 +11,22 @@ import {styles} from './styles';
 import {Theme} from '../../theme';
 
 import {forecastConditionsIcons} from '../../utils';
+import {ModalInfoDay} from '../../components/app';
 
 export function NextDaysScreen({route}: any) {
+  const [open, setOpen] = React.useState(false);
+  const [itemSelected, setItemSelected] = React.useState<any>(null); // Para armazenar o item selecionado
+
   const {search} = route.params;
   const navigation = useNavigator();
 
   function handleGoBack() {
     navigation?.goBack();
+  }
+
+  function handlePressOpenInfo(item: any) {
+    setOpen(true);
+    setItemSelected(item);
   }
 
   return (
@@ -137,8 +146,9 @@ export function NextDaysScreen({route}: any) {
         />
       </View>
       <View style={styles.content}>
-        <CardNextDays search={search} />
+        <CardNextDays search={search} selectItem={handlePressOpenInfo} />
       </View>
+      {open && <ModalInfoDay setOpen={setOpen} item={itemSelected} />}
     </SafeAreaView>
   );
 }

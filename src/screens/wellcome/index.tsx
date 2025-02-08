@@ -15,7 +15,6 @@ export function WellcomeScreen() {
     if (!isOpen) {
       setOpenApp();
     }
-    console.log(isOpen);
   }, [isOpen, setOpenApp]);
 
   function handleClick() {

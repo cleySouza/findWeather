@@ -3,26 +3,23 @@ import {FlatList, Image, Text, View} from 'react-native';
 import React from 'react';
 
 interface IProps {
-  hours: any;
+  item: any;
 }
 
-export function ListNextHours({hours}: IProps) {
-  const currentHour = new Date().getHours();
+export function ListNextHours({item}: IProps) {
+  // Obter todas as horas do item
+  const hoursToDisplay = item.hour; // Pegue todas as horas diretamente
 
-  const upcomingHours = hours.filter((item: any) => {
-    const hourFromItem = new Date(item.time).getHours();
-    return hourFromItem > currentHour;
-  });
   return (
     <View style={styles.contentNextHours}>
       <FlatList
-        data={upcomingHours}
+        data={hoursToDisplay}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({item, index}) => (
           <View key={index} style={styles.cardNextHours}>
             <Text style={styles.textNextHoursTemp}>
-              {Math.floor(item.temp_c)}
+              {Math.floor(item.temp_c)}º
             </Text>
             <Image
               source={{uri: `https:${item.condition?.icon}`}}
