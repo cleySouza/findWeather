@@ -1,97 +1,126 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FindWeather
 
-# Getting Started
+**FindWeather** é um aplicativo React Native que permite ao usuário buscar o clima de diferentes cidades ao redor do mundo. O app utiliza a Fetch API para buscar dados meteorológicos e exibe as informações de forma simples e intuitiva. Ele armazena dados de pesquisa e o estado de abertura do app para oferecer uma experiência personalizada e fluida.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+<div style="display: flex; flex-direction: row; gap: 20px;">
+    <img src="./assets/iOS.gif" width="300">
+    <img src="./assets/Android.gif" width="300">
+</div>
 
-## Step 1: Start Metro
+## Tecnologias Usadas
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **React Native 0.77**: Framework para o desenvolvimento de aplicativos móveis.
+- **Fetch API**: Para fazer requisições HTTP e buscar os dados de clima.
+- **React Navigation v7**: Para navegar entre as telas do app.
+- **React Native Vector Icons**: Para ícones customizados no app.
+- **dotenv**: Para gerenciar variáveis de ambiente de forma segura.
+- **useContext**: Para gerenciar o estado global do aplicativo, compartilhando dados entre os componentes.
+- **MMKV Storage v3.2**: Para armazenar dados localmente, como se o app foi aberto pela primeira vez, o texto da cidade e os dados da pesquisa.
+- **NodeJS v22.13.0**
+## Instalação
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Para instalar e rodar o projeto localmente, siga os passos abaixo:
 
-```sh
-# Using npm
-npm start
+1. **Clone o repositório**:
 
-# OR using Yarn
-yarn start
-```
+    ```bash
+    git clone https://github.com/cleySouza/findWeather.git
+    ```
 
-## Step 2: Build and run your app
+2. **Navegue até o diretório do projeto**:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+    ```bash
+    cd findWeather
+    ```
 
-### Android
+3. **Instale as dependências**:
 
-```sh
-# Using npm
-npm run android
+    ```bash
+    npm install
+    ```
 
-# OR using Yarn
-yarn android
-```
+4. **Instale as dependências nativas (caso seja necessário)**:
 
-### iOS
+    ```bash
+    npx pod-install ios
+    ```
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+5. **Crie um arquivo `.env` na raiz do projeto e adicione a variável de ambiente com a chave da API de clima**:
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+    ```dotenv
+    API_KEY=your_api_key_here
+    ```
 
-```sh
-bundle install
-```
+6. **Agora você pode rodar o aplicativo em seu emulador ou dispositivo**:
 
-Then, and every time you update your native dependencies, run:
+    - Para **iOS**:
 
-```sh
-bundle exec pod install
-```
+    ```bash
+    npx react-native run-ios
+    ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+    - Para **Android**:
 
-```sh
-# Using npm
-npm run ios
+    ```bash
+    npx react-native run-android
+    ```
 
-# OR using Yarn
-yarn ios
-```
+## Funcionalidades
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+- **Busca de Clima**: O usuário pode buscar o clima de qualquer cidade utilizando a Fetch API para obter os dados meteorológicos.
+- **Persistência de Dados**: Utilizando o MMKV, o app armazena:
+    - Se o aplicativo foi aberto pela primeira vez.
+    - O texto da última cidade pesquisada.
+    - Os dados do clima da última pesquisa.
+- **Navegação entre telas**: O app utiliza React Navigation para navegar entre as telas de busca e detalhes do clima.
+- **Ícones Personalizados**: O app utiliza o React Native Vector Icons para exibir ícones de clima, tornando a interface mais atrativa.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Detalhamento das pastas
 
-## Step 3: Modify your app
+- **`@types/`**: Contém os tipos e definições personalizadas do TypeScript, garantindo a tipagem forte em todo o projeto.
+- **`assets/`**: Armazena os recursos estáticos do app, como imagens, ícones, fontes e outros arquivos de mídia.
+- **`components/`**: Componentes reutilizáveis do app. A subpasta `app/` contém componentes principais, enquanto `core/` inclui componentes auxiliares e de suporte.
+- **`hooks/`**: Hooks personalizados para lógica reutilizável em várias partes do app.
+- **`router/`**: Arquivos de configuração de navegação, utilizando o React Navigation para controlar as telas e rotas do app.
+- **`screens/`**: Contém as telas principais do aplicativo (como a tela de busca de cidade e detalhes do clima).
+- **`service/`**: Contém funções e lógica para fazer requisições para APIs externas e manipular os dados recebidos.
+- **`theme/`**: Configurações globais de UI, como cores, fontes e estilos, que são aplicados em todo o app.
+- **`utils/`**: Funções utilitárias para tarefas comuns e repetitivas em várias partes do código.
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Essa estrutura harmonizada facilita o entendimento de como o projeto está organizado, além de ser prática para escalabilidade e manutenção no futuro. 😊
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## Como Funciona
 
-## Congratulations! :tada:
+1. **Tela de Busca de Cidade**:
+    - O usuário insere o nome de uma cidade e o app faz uma requisição à API de clima.
+    - A resposta da API é processada e exibida na tela com detalhes do clima, como temperatura, umidade e previsão.
 
-You've successfully run and modified your React Native App. :partying_face:
+2. **Persistência de Dados**:
+    - Ao pesquisar uma cidade, o app armazena o nome da cidade e os dados do clima utilizando o MMKV. Isso permite que a pesquisa seja persistente entre as sessões.
+    - Além disso, o app verifica se é a primeira vez que está sendo aberto e exibe um tutorial ou mensagem de boas-vindas.
 
-### Now what?
+3. **Navegação**:
+    - O app tem uma navegação simples entre a tela inicial de busca e uma tela de detalhes para mostrar as informações do clima.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## Contribuições
 
-# Troubleshooting
+Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga os seguintes passos:
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+1. **Faça um fork deste repositório**.
+2. **Crie uma branch para a sua feature** (`git checkout -b feature/nome-da-feature`).
+3. **Faça o commit das suas mudanças** (`git commit -m 'Add new feature'`).
+4. **Envie para o repositório remoto** (`git push origin feature/nome-da-feature`).
+5. **Abra um Pull Request**.
 
-# Learn More
+## Licença
 
-To learn more about React Native, take a look at the following resources:
+Este projeto está licenciado sob a [MIT License](LICENSE).
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+Se você tiver dúvidas ou sugestões, fique à vontade para abrir uma issue ou mandar uma mensagem!
+
+---
