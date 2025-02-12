@@ -1,23 +1,24 @@
 import {Alert} from 'react-native';
 import {API_KEY} from '@env';
 
-export function getForestApi(
-  data: {value: string; days?: number},
-): Promise<any> {
+export function getForestApi(data: {
+  value: string;
+  days?: number;
+}): Promise<any> {
   return fetch(
     `https://api.weatherapi.com/v1/forecast.json?q=${data.value}&days=${data.days}&key=${API_KEY}&lang=pt`,
-    { headers: { 'Content-Type': 'application/json' }, method: 'GET' }
+    {headers: {'Content-Type': 'application/json'}, method: 'GET'},
   )
     .then(res => res.json())
     .catch(error => {
       Alert.alert(error.message);
-      return null;  // Retorna null em caso de erro
+      return null;
     });
 }
 
 export function getSearchApi(
   data: {value: string},
-  setSearch?: React.Dispatch<React.SetStateAction<any[]>>,  // Agora, esperamos um array de cidades
+  setSearch?: React.Dispatch<React.SetStateAction<any[]>>,
   setLoading?: React.Dispatch<React.SetStateAction<any>>,
 ) {
   if (setLoading) {
@@ -36,27 +37,23 @@ export function getSearchApi(
           setLoading(false);
         }
       } else {
-        // Agora, vamos chamar o getForestApi para cada cidade e armazenar os dados detalhados
         const cityRequests = data.map((city: any) => {
-          return getForestApi({ value: city.url, days: 6 }); // Chama getForestApi para cada cidade
+          return getForestApi({value: city.url, days: 6});
         });
 
-        // Espera todas as requisições de clima terminarem
         Promise.all(cityRequests)
-          .then((responses) => {
+          .then(responses => {
             if (setSearch) {
-              setSearch(responses); // Armazena os resultados completos das cidades
+              setSearch(responses);
             }
           })
-          .catch((error) => Alert.alert(error.message))
+          .catch(error => Alert.alert(error.message))
           .finally(() => {
             if (setLoading) {
-              setLoading(false); // Desativa o loading ao final
+              setLoading(false);
             }
           });
       }
     })
     .catch(error => Alert.alert(error.message));
 }
-
-
